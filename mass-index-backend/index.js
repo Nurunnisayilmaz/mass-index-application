@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express()
 const mongoose = require('mongoose');
-const moment = require('moment');
 const port = 3000
 
 app.use(express.json())
