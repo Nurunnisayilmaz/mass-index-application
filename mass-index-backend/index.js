@@ -10,20 +10,8 @@ app.use(express.json())
 
 mongoose.connect('mongodb://localhost:27017/member');
 
-const massDataSchema = new mongoose.Schema({
-    date: {type: Date, required: true},
-    height: {type: Number, required: true},
-    weight: {type: Number, required: true},
-    massIndexValue: {type: Number, required: true}
-}, {timestamps: false});
 
-const memberData = mongoose.model('memberData', new mongoose.Schema({
-    email: {type: String, required: true},
-    password: {type: Number, required: true},
-    name: {type: String, required: true},
-    surname: {type: String, required: true},
-    massData: [massDataSchema]
-}, {timestamps: true}));
+const memberData = require('./models/user.js')
 
 
 app.post('/register', (req, res) => {
